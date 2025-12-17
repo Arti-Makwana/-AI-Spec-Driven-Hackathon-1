@@ -1,0 +1,81 @@
+/* my-book/src/components/Chatbot.module.css */
+.chatbotContainer {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.responseArea {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+}
+
+.answerText {
+    white-space: pre-wrap; /* Preserves formatting and line breaks */
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.5;
+}
+
+.sources {
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+}
+
+.sourceTag {
+    display: inline-block;
+    background: #e0f7fa; /* Light cyan */
+    color: #00796b; /* Dark cyan */
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    margin-right: 8px;
+    margin-top: 5px;
+    border: 1px solid #00796b;
+}

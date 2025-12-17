@@ -1,0 +1,17 @@
+/* src/css/custom.css */
+
+:root {
+  --ifm-color-primary: #b98b8b; /* Original Emerald Green */
+  --ifm-font-family-base: 'Plus Jakarta Sans', sans-serif;
+}
+
+[data-theme='dark'] {
+  --ifm-background-color: #1b1b1d;
+}
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  background: transparent;
+}
+
