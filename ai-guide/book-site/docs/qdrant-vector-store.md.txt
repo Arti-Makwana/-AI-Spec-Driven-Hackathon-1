@@ -1,0 +1,48 @@
+---
+sidebar_position: 4
+title: Qdrant Vector Store
+---
+
+# Chapter 4: Qdrant Vector Store
+
+Qdrant is a high-performance vector database that stores and indexes vector embeddings (numerical representations of text, images, or code) for fast similarity search. It is a foundational component of modern RAG (Retrieval-Augmented Generation) systems.
+
+## Why Use a Vector Store?
+
+For our RAG chatbot, the vector store holds the embeddings of our book's content. When a user asks a question, their question is converted into a vector, and Qdrant quickly finds the most relevant text chunks from our book to provide to the AI for generating an answer.
+
+## Qdrant Client Setup
+
+You must install the Qdrant client library in your Python environment:
+
+```bash
+pip install qdrant-client
+
+Basic Collection and Vector Insertion
+The following code demonstrates connecting to a local Qdrant instance, creating a collection (a container for vectors), and inserting a simple vector point:
+
+from qdrant_client import QdrantClient, models
+
+# 1. Initialize the client (connect to Qdrant server)
+client = QdrantClient(host="localhost", port=6333)
+
+COLLECTION_NAME = "book_chunks"
+
+# 2. Create a collection with a specific vector dimension (e.g., 1536 for OpenAI embeddings)
+client.recreate_collection(
+    collection_name=COLLECTION_NAME,
+    vectors_config=models.VectorParams(size=1536, distance=models.Distance.COSINE),
+)
+
+# 3. Insert a point (vector)
+client.upsert(
+    collection_name=COLLECTION_NAME,
+    points=[
+        models.PointStruct(
+            id=1,  # Unique ID for the chunk
+            vector=[0.1, 0.2, 0.3, ...], # 1536 dimensions
+            payload={"source": "Chapter 1", "text": "Spec-Driven Development is best..."}
+        )
+    ]
+)
+The payload section ({"source": ...}) is crucial for storing the original text and metadata, which is retrieved when a query matches.

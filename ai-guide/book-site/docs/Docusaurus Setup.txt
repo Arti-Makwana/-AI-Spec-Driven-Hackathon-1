@@ -1,0 +1,15 @@
+---
+sidebar_position: 2
+title: Docusaurus Setup
+---
+
+# Chapter 2: Docusaurus Setup
+
+Docusaurus is a static site generator that makes it easy to publish documentation websites. It uses React for its structure, allowing for fast, modern site development and deployment.
+
+## Installation and Initialization
+
+Assuming you have Node.js and npm installed, you can initialize a new Docusaurus project (which you have already done) by running the following command from your project root:
+
+```bash
+npx create-docusaurus@latest book-site classic

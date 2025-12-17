@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+title: The Spec-Driven Methodology
+---
+
+# Chapter 1: The Spec-Driven Methodology (SDD)
+
+Spec-Driven Development (SDD) is a disciplined, engineering-first approach that places a clear, written specification at the center of the development workflow. This approach prevents guesswork and ensures AI agents, and human team members, work from a single, verifiable contract—the specification.
+
+## The Core Philosophy
+
+Instead of writing code first and documentation later, the Spec-Driven approach treats the specification as the *source of truth*. Code must serve the spec, not the other way around.
+
+This is a shift from ad-hoc prompting (or "vibe coding") to a structured methodology. By forcing requirements to be clearly defined upfront, SDD creates a verifiable contract that guides all subsequent work.
+
+## The Four Phases of Spec-Kit
+
+The Spec-Kit methodology breaks down development into four clear, sequential phases with built-in review checkpoints:
+
+### 1. Specify
+
+* **Goal:** Define the **what** and the **why** of the project.
+* **Process:** A high-level description is provided, and the AI agent generates a detailed specification focusing on user journeys, goals, and acceptance criteria.
+* **Artifact:** The resulting **`spec.md`** file, which captures the intended outcome.
+
+### 2. Plan
+
+* **Goal:** Translate the specification into a high-level technical **how**.
+* **Process:** The developer provides technical direction (stack, architecture, constraints), and the AI generates a detailed plan that respects these choices.
+* **Artifacts:** Documents like **`plan.md`** and potentially others (e.g., `api-spec.json`) codify the technical decisions.
+
+### 3. Tasks
+
+* **Goal:** Break the technical plan into small, executable, and reviewable chunks of work.
+* **Process:** The AI analyzes the `plan.md` and generates a granular, enumerated task list.
+* **Artifact:** The **`tasks.md`** file, which acts as a project manager's checklist to structure the implementation.
+
+### 4. Implement
+
+* **Goal:** Generate or write the code for each task and verify it against the spec.
+* **Process:** The developer instructs the AI to complete small units of work. The output is reviewed against the original `spec.md` and `plan.md` to ensure accuracy.
+* **Outcome:** Verifiable, consistent code that adheres to the established architectural constraints.

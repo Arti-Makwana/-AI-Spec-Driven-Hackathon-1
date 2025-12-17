@@ -1,0 +1,13 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+.docusaurus/
+build/
+
+# Database & Environment
+.env
+qdrant_storage/
