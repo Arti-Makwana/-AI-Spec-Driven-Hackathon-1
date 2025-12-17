@@ -70,14 +70,17 @@ def ingest_data():
     print(f"Total chunks generated: {len(chunks)}")
     
     # 2. Setup Qdrant Client 
-    client = qdrant_client.QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+    client = qdrant_client.QdrantClient(
+        url="https://fb3daab4-91bf-4bb3-9515-594865aae1c7.europe-west3-0.gcp.cloud.qdrant.io",
+        api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.f_2rDhtqiIZ900qC4PlnmZMElzM_CWVoftAZnEu__kA"
+)
     
     print("Setting up Qdrant collection...")
     try:
-        client.recreate_collection(
-            collection_name=QDRANT_COLLECTION_NAME,
-            vectors_config=VectorParams(size=EMBEDDING_DIM, distance=Distance.COSINE),
-        )
+       client.recreate_collection(
+    collection_name="my_book_rag", # Change this from QDRANT_COLLECTION_NAME
+    vectors_config=VectorParams(size=EMBEDDING_DIM, distance=Distance.COSINE),
+)
     except Exception as e:
         print(f"Error setting up Qdrant collection: {e}. Check if your Docker container is running.")
         return
@@ -101,7 +104,7 @@ def ingest_data():
     # 4. Upload to Qdrant
     print(f"Uploading {len(points)} vectors to Qdrant...")
     client.upsert(
-        collection_name=QDRANT_COLLECTION_NAME,
+        collection_name="my_book_rag",
         wait=True,
         points=points,
     )
