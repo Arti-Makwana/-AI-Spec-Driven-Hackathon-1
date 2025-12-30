@@ -9,8 +9,14 @@ import numpy as np
 from numpy.linalg import norm 
 
 # --- 1. Load environment variables FIRST ---
+from dotenv import os
 from dotenv import load_dotenv
-load_dotenv() 
+load_dotenv()
+
+# This allows it to work BOTH locally (.env) and on Render (Environment Variables)
+QDRANT_HOST = os.getenv("QDRANT_HOST")
+QDRANT_API_KEY = os.getenv("OPENAI_API_KEY") # Ensure this matches your Render secret name
+QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME", "my_book_rag")
 
 # --- 2. Import configuration SECOND ---
 from config import QDRANT_HOST, QDRANT_PORT, QDRANT_COLLECTION_NAME, OPENAI_API_KEY, OPENAI_MODEL 
@@ -26,7 +32,11 @@ app.add_middleware(
 CORSMiddleware,
     # Add your GitHub Pages URL here!
     # If running locally, you only need 'http://localhost:3000' for testing
-    allow_origins=["http://127.0.0.1:8000", "http://localhost:3000", "https://github.com/Arti-Makwana>.github.io/<Repo-Name>"],
+  # Update line 29 in main.py
+allow_origins=[
+    "http://localhost:3000",
+    "https://Arti-Makwana.github.io" # Add your GitHub Pages domain here
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
