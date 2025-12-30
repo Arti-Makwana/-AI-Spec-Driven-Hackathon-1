@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbook_site=globalThis.webpackChunkbook_site||[]).push([[8304],{2651:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/-AI-Spec-Driven-Hackathon-1/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
